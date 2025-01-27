@@ -8,3 +8,5 @@ app = FastAPI()
 # Include routers
 app.include_router(guest_router)
 app.include_router(room_router)
+
+print('print statement')
