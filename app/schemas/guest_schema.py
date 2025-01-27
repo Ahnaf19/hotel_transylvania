@@ -8,7 +8,7 @@ class GuestHistory(BaseModel):
     guest_departure: Optional[date | None]
 
 class GuestBase(BaseModel):
-    guest_id: Optional[str] = None
+    guest_id: str | None = None
     guest_name: str
     guest_email: EmailStr
     guest_contact: str #  TODO: Add regex for contact number --> regex=r'^(\+8801|01)[0-9]\d{9}$'
