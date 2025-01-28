@@ -1,6 +1,7 @@
 from datetime import date
 from typing import Optional
 from pydantic import BaseModel, EmailStr
+import uuid
 
 class GuestHistory(BaseModel):
     guest_arrival: date
