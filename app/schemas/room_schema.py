@@ -1,4 +1,4 @@
-# from uuid import UUID
+from typing import Optional
 from pydantic import BaseModel
 
 class RoomBase(BaseModel):
@@ -6,4 +6,4 @@ class RoomBase(BaseModel):
     room_type: str
     room_price: float
     room_is_available: bool
-    current_guest_id: str | None = None
+    current_guest_id: Optional[str] = None
