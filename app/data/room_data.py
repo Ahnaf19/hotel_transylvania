@@ -9,15 +9,15 @@ class Room(room_schema.RoomBase):
             room_is_available=room_is_available
         )
     
-class RoomData(room_schema.RoomData):
+class RoomData:
     def __init__(self):
-        self.rooms = []
+        self.rooms: dict[int, Room] = {}
         self.create_rooms()
         
         # add dummy_guest to room 101
         # ! Hardcoded for testing purposes
-        self.rooms[0].current_guest_id = "23159162-dd67-4a2a-8054-d6be6c0379ca"
-        self.rooms[0].room_is_available = False
+        self.rooms[101].current_guest_id = "23159162-dd67-4a2a-8054-d6be6c0379ca"
+        self.rooms[101].room_is_available = False
     
     def create_rooms(self):
         room_ids = [101, 102, 103, 104, 105]
@@ -30,14 +30,14 @@ class RoomData(room_schema.RoomData):
     
     def add_dummy_room(self, room_id, room_type, room_price, room_is_available):
         new_room = Room(room_id, room_type, room_price, room_is_available)
-        self.rooms.append(new_room)
+        self.rooms[new_room.room_id] = new_room
         return new_room
 
 # initialize the dummy guest data
 dummy_room_data = RoomData()
 
 if __name__ == "__main__":
-    room = dummy_room_data.rooms[0]
+    room = dummy_room_data.rooms[101]
     print(f"Room ID: {room.room_id}")
     print(f"Room Type: {room.room_type}")
     print(f"Room Price: {room.room_price}")
@@ -46,4 +46,4 @@ if __name__ == "__main__":
     print("\n")
     print(type(dummy_room_data))
     print(type(dummy_room_data.rooms))
-    print(type(dummy_room_data.rooms[0]))
+    print(type(dummy_room_data.rooms[101]))

@@ -8,5 +8,5 @@ class RoomBase(BaseModel):
     room_is_available: bool
     current_guest_id: str | None = None
     
-class RoomData:
-    guest: list[RoomBase]
+# class RoomData:
+#     guest: list[RoomBase]

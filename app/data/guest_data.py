@@ -16,7 +16,7 @@ class Guest(guest_schema.GuestBase):
     def __str__(self):
         return f"Guest ID: {self.guest_id}\nGuest Name: {self.guest_name}\nGuest Email: {self.guest_email}\nGuest Contact: {self.guest_contact}\nGuest History: {self.guest_history}"
     
-class GuestData(guest_schema.GuestData):
+class GuestData:
     def __init__(self):
         self.guests: dict[str, Guest] = {}
         dummy_guest = {

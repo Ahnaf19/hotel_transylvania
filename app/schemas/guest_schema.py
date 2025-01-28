@@ -13,6 +13,3 @@ class GuestBase(BaseModel):
     guest_email: EmailStr
     guest_contact: str #  TODO: Add regex for contact number --> regex=r'^(\+8801|01)[0-9]\d{9}$'
     guest_history: list[GuestHistory]
-
-class GuestData:
-    guest: list[GuestBase]
