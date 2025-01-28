@@ -1,17 +1,9 @@
 from app.schemas import room_schema
 
-class Room(room_schema.RoomBase):
-    def __init__(self, room_id, room_type, room_price, room_is_available):
-        super().__init__(
-            room_id = room_id,
-            room_type=room_type,
-            room_price=room_price,
-            room_is_available=room_is_available
-        )
     
 class RoomData:
     def __init__(self):
-        self.rooms: dict[int, Room] = {}
+        self.rooms: dict[int, room_schema.RoomBase] = {}
         self.create_rooms()
         
         # add dummy_guest to room 101
@@ -25,11 +17,18 @@ class RoomData:
         room_prices = [1000.0, 1500.0, 2000.0, 2500.0, 3000.0]
         room_is_available = [True, True, True, True, True]
         
-        for i in range(5):
-            self.add_dummy_room(room_ids[i], room_types[i], room_prices[i], room_is_available[i])
-    
-    def add_dummy_room(self, room_id, room_type, room_price, room_is_available):
-        new_room = Room(room_id, room_type, room_price, room_is_available)
+        for i in range(len(room_ids)):
+            room = {
+                'room_id': room_ids[i],
+                'room_type': room_types[i],
+                'room_price': room_prices[i],
+                'room_is_available': room_is_available[i],
+                'current_guest_id': None
+            }
+            self.add_dummy_room(room)
+
+    def add_dummy_room(self, room):
+        new_room = room_schema.RoomBase(**room) # * pydantic isn't designed to work with positional arguments
         self.rooms[new_room.room_id] = new_room
         return new_room
 

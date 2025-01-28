@@ -1,5 +1,4 @@
 from app.schemas import guest_schema
-import uuid
    
 class GuestData:
     def __init__(self):
@@ -32,8 +31,7 @@ class GuestData:
         del self.guests[new_guest_id]
 
     def add_guest(self, guest):
-        guest_id = str(uuid.uuid4())
-        new_guest = guest_schema.GuestBase(guest_id = guest_id, **guest) # ? why it doesn't work with positional arguments?
+        new_guest = guest_schema.GuestBase(**guest) # * pydantic isn't designed to work with positional arguments
         self.guests[new_guest.guest_id] = new_guest
         return new_guest, new_guest.guest_id
 
