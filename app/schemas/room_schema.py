@@ -7,6 +7,3 @@ class RoomBase(BaseModel):
     room_price: float
     room_is_available: bool
     current_guest_id: str | None = None
-    
-class RoomData:
-    guest: list[RoomBase]
