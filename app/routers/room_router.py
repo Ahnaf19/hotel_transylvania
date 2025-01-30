@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from app.data.room_data import RoomData, dummy_room_data
+from app.data.room_data import dummy_room_data
 from app.services.room_service import RoomService
 from app.schemas.room_schema import *
 
@@ -10,7 +10,7 @@ router = APIRouter(prefix="/rooms", tags=["rooms"])
 room_service = RoomService(dummy_room_data)
 
 # define the routes
-@router.get("/")
+@router.get("/", response_model=RoomData)
 async def read_rooms() -> RoomData:
     return room_service.dummy_room_data
 

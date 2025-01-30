@@ -1,4 +1,3 @@
-from app.data.room_data import RoomData
 from app.schemas.room_schema import *
 from app.exceptions.room_exceptions import *
 from loguru import logger
