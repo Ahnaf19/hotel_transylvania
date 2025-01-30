@@ -23,7 +23,7 @@ uvicorn app.main:app --reload
 
 # running .py & pytest
 
-a. use module -m
+a. run as module (-m)
 
 ```
 python -m app.main # don't include .py extension
@@ -37,8 +37,8 @@ b. export the root directory to python path
 
 ```
 # probably need to run at each new terminal session
-export PYTHONPATH="/path/to/hotel_transylvania"  # for linux
-set PYTHONPATH=/path/to/hotel_transylvania # for window cmd
+export PYTHONPATH="/path/to/hotel_transylvania"  # for linux & macOS
+set PYTHONPATH=/path/to/hotel_transylvania # for windows cmd
 $env:PYTHONPATH = "/path/to/hotel_transylvania" # for windows powershell
 ```
 
@@ -55,7 +55,7 @@ pytest tests/testfile.py
 
 [alternatively: configure pytest]
 
-add either of `pytest.ini` or `tox.ini` or `setup.cfg` and add following:
+add either of `pytest.ini` or `tox.ini` or `setup.cfg` at root and add following:
 
 ```
 [pytest]
@@ -67,5 +67,5 @@ Now, exporting the root path is not necessary, pytest would work. Try:
 ```
 # run pytest
 pytest
-pytest tests/testfile.py
+pytest tests/test_file_name.py
 ```
