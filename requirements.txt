@@ -1,4 +1,4 @@
-fastapi
-uvicorn
-pydantic[email]
-loguru
+fastapi==0.70.0
+uvicorn==0.15.0
+pydantic[email]==1.8.2
+loguru==0.5.3
