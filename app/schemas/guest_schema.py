@@ -1,7 +1,9 @@
 from datetime import date
 from typing import Optional
+from loguru import logger
 from pydantic import BaseModel, EmailStr
 import uuid
+
 
 class GuestHistory(BaseModel):
     guest_arrival: date
@@ -33,10 +35,9 @@ class GuestData(BaseModel):
         self.guests[new_guest.guest_id] = new_guest
         
         # ! Hardcoded for testing purposes
-        self.guests["23159162-dd67-4a2a-8054-d6be6c0379ca"] = new_guest
+        self.guests["23159162-dd67-4a2a-8054-d6be6c0379ca"] = new_guest.model_copy()
         self.guests["23159162-dd67-4a2a-8054-d6be6c0379ca"].guest_id = "23159162-dd67-4a2a-8054-d6be6c0379ca"
-        del self.guests[new_guest_id]
-    
+        del self.guests[new_guest.guest_id]
 
 class UpdateGuest(BaseModel):
     guest_name: Optional[str]

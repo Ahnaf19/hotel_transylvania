@@ -1,8 +1,11 @@
-from ..schemas.guest_schema import GuestBase
+from app.schemas.guest_schema import *
+# from app.exceptions.guest_exceptions import GuestNotFoundException
+from loguru import logger
 
 class GuestService:
-    def __init__(self):
-        self.guests = []
+    def __init__(self, dummy_guest_data: GuestData):
+        self.dummy_guest_data = dummy_guest_data
+        logger.debug("GuestService initialized")
 
     def create_guest(self, guest: GuestBase):
         self.guests.append(guest)

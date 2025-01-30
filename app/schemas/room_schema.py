@@ -24,7 +24,6 @@ class RoomBase(BaseModel):
             if hasattr(self, key):
                 setattr(self, key, value)
 
-
 class RoomData(BaseModel):
     """
     A class to manage multiple rooms in the hotel.
@@ -54,9 +53,9 @@ class RoomData(BaseModel):
             }
             self.add_dummy_room(room)
             
-            # ! Hardcoded for testing purposes
-            self.rooms[101].current_guest_id = "23159162-dd67-4a2a-8054-d6be6c0379ca"
-            self.rooms[101].room_is_available = False
+        # ! Hardcoded for testing purposes
+        self.rooms[102].current_guest_id = "23159162-dd67-4a2a-8054-d6be6c0379ca"
+        self.rooms[102].room_is_available = False
 
     def add_dummy_room(self, room) -> RoomBase:
         """
