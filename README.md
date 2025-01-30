@@ -21,12 +21,14 @@ pip install -r requirements_test.txt
 uvicorn app.main:app --reload
 ```
 
-# running .py
+# running .py & pytest
 
 a. use module -m
 
 ```
 python -m app.main # don't include .py extension
+
+# for running pytest explicitly, need to go for the alternative approach below
 ```
 
 [alternatively]
@@ -34,11 +36,36 @@ python -m app.main # don't include .py extension
 b. export the root directory to python path
 
 ```
-export PYTHONPATH=/path/to/hotel_transylvania # probably need to run at each new terminal session
+# probably need to run at each new terminal session
+export PYTHONPATH="/path/to/hotel_transylvania"  # for linux
+set PYTHONPATH=/path/to/hotel_transylvania # for window cmd
+$env:PYTHONPATH = "/path/to/hotel_transylvania" # for windows powershell
 ```
 
 now can run:
 
 ```
+# run .py
 python app/main.py
+
+# run pytest
+pytest
+pytest tests/testfile.py
+```
+
+[alternatively: configure pytest]
+
+add either of `pytest.ini` or `tox.ini` or `setup.cfg` and add following:
+
+```
+[pytest]
+pythonpath = .
+```
+
+Now, exporting the root path is not necessary, pytest would work. Try:
+
+```
+# run pytest
+pytest
+pytest tests/testfile.py
 ```
