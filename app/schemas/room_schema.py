@@ -1,4 +1,4 @@
-from typing import Optional, Dict, List
+from typing import Optional
 from pydantic import BaseModel
 
 
@@ -31,7 +31,7 @@ class RoomData(BaseModel):
     
     This schema uses Pydantic for data validation and serialization.
     """
-    rooms: Dict[int, RoomBase] = {}
+    rooms: dict[int, RoomBase] = {} # TODO: convert this int to str addressing the json serialization issue
 
     def create_dummy_rooms(self, **dummy_room_data) -> None:
         """
@@ -53,7 +53,8 @@ class RoomData(BaseModel):
                 'current_guest_id': None
             }
             self.add_dummy_room(room)
-            # Hardcoded for testing purposes
+            
+            # ! Hardcoded for testing purposes
             self.rooms[101].current_guest_id = "23159162-dd67-4a2a-8054-d6be6c0379ca"
             self.rooms[101].room_is_available = False
 
