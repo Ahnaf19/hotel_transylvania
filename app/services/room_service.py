@@ -1,27 +1,40 @@
-from app.data.room_data import dummy_room_data, RoomData
+from app.schemas.room_schema import *
+from app.exceptions.room_exceptions import *
+from loguru import logger
 
 class RoomService:
-    @staticmethod
-    def get_room_by_id(room_id: int):
-        assert isinstance(dummy_room_data, RoomData)  # ? how to resolve dtype issue without this assertion?
-        response = dummy_room_data.rooms.get(room_id, None) #TODO implement custom exception if room_id not found
-        return response
+    def __init__(self, dummy_room_data: RoomData) -> None:
+        self.dummy_room_data = dummy_room_data
+        logger.info("RoomService initialized")
+    
+    def get_room_by_id(self, room_id: int) -> RoomBase:
+        response_room = self.dummy_room_data.rooms.get(room_id, None)
+        if response_room is None:
+            logger.error(f"Room with id {room_id} not found")
+            raise RoomNotFoundException(room_id)
+        logger.info(f"Room with id {room_id} found: {response_room.model_dump()}")
+        return response_room
 
-    @staticmethod
-    def add_room(room):
-        assert isinstance(dummy_room_data, RoomData)
-        dummy_room_data.rooms[room["room_id"]] = room
-        return room
+    def add_room(self, room: RoomBase) -> RoomBase:
+        logger.info(f"Received room: {room}")
+        if self.dummy_room_data.rooms.get(room.room_id, None):
+            logger.error(f"Room with id {room.room_id} already exists")
+            raise RoomAlreadyExistsException(room.room_id)
+        self.dummy_room_data.rooms[room.room_id] = room
+        logger.info(f"Room with id {room.room_id} added: {room.model_dump()}")
+        return room 
 
-    # @staticmethod
-    # def delete_room_by_id(room_id: int):
-    #     dummy_room_data = [room for room in dummy_room_data if room["id"] != room_id]
-    #     return {"message": f"Room with id {room_id} deleted"}
+    def delete_room_by_id(self, room_id: int) -> RoomBase:
+        deleted_room = self.dummy_room_data.rooms.pop(room_id, None)
+        if deleted_room is None:
+            logger.error(f"Room with id {room_id} not found")
+            raise RoomNotFoundException(room_id)
+        logger.info(f"Room with id {room_id} deleted: {deleted_room.model_dump()}")
+        return deleted_room
 
-    # @staticmethod
-    # def update_room_by_id(room_id: int, updated_room: dict):
-    #     for index, room in enumerate(dummy_room_data):
-    #         if room["id"] == room_id:
-    #             dummy_room_data[index].update(updated_room)
-    #             return dummy_room_data[index]
-    #     return None
+    def update_room_by_id(self, room_id: int, update_room: UpdateRoom) -> RoomBase:
+        response_room = self.get_room_by_id(room_id)
+        update_data = update_room.model_dump(exclude_unset=True) # exclude_unset will exclude the data that is not set/updated
+        response_room.update(**update_data) # update the data
+        logger.info(f"Room with id {room_id} updated: {response_room.model_dump()}")
+        return response_room
