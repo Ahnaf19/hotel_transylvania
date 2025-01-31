@@ -1,7 +1,8 @@
 from fastapi import APIRouter
 from app.data.room_data import dummy_room_data
 from app.services.room_service import RoomService
-from app.schemas.room_schema import RoomData, RoomBase, UpdateRoom
+from app.schemas.room_schema import *
+
 
 # Initialize the router
 router = APIRouter(prefix="/rooms", tags=["rooms"])
