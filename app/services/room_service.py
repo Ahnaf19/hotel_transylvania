@@ -1,6 +1,7 @@
-from app.schemas.room_schema import RoomBase, RoomData, UpdateRoom
+from app.schemas.room_schema import *
 from app.exceptions.room_exceptions import RoomNotFoundException, RoomAlreadyExistsException
 from loguru import logger
+
 
 class RoomService:
     """

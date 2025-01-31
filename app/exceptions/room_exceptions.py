@@ -1,5 +1,6 @@
 from fastapi import HTTPException
 
+
 class RoomNotFoundException(HTTPException):
     """
     Exception raised when a room with the specified ID is not found.

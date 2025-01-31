@@ -55,7 +55,7 @@ pytest tests/testfile.py
 
 [alternatively: configure pytest]
 
-add either of `pytest.ini` or `tox.ini` or `setup.cfg` at root and add following:
+add any one of `pytest.ini` or `tox.ini` or `setup.cfg` at root and add following:
 
 ```
 [pytest]
