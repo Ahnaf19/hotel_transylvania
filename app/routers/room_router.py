@@ -10,7 +10,6 @@ router = APIRouter(prefix="/rooms", tags=["rooms"])
 room_service = RoomService(dummy_room_data)
 
 # Define the routes
-
 @router.get("/", response_model=RoomData)
 async def read_rooms() -> RoomData:
     """
