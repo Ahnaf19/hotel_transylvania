@@ -1,10 +1,10 @@
 import pytest
 from fastapi.testclient import TestClient
-import test
 from app.main import app
 from app.data.room_data import dummy_room_data
 from app.schemas.room_schema import RoomBase, UpdateRoom
 from loguru import logger
+
 
 class TestRoomRouter:
     @classmethod
@@ -46,7 +46,7 @@ class TestRoomRouter:
             response = self.client.get(f"/rooms/{test_room_id}")
             assert response.status_code == 200
             assert response.json()["room_id"] == test_room_id
-            if test_room_id == 101:
+            if test_room_id == 102: # * testing harcoded portion
                 assert response.json()["current_guest_id"] == "23159162-dd67-4a2a-8054-d6be6c0379ca"
                 assert response.json()["room_is_available"] == False
 
