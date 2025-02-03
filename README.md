@@ -22,28 +22,28 @@ This repository contains the codebase for a web application built using FastAPI 
 
 This project highlights:
 
-1. API for guests and rooms which was kinda fast to builld using `fastAPI`
-2. Clean & modular repo structure
+1. `FastAPI` + `Uvicorn`: Lightning-fast API development for guests and rooms ⚡
+2. Modular Architecture: Structured for scalability 🔥
    - separate application and tests directory
    - clean module/package initiation at each submodule
    - modular directory structure for required data, schemas, services and routers
-3. Clean application
+3. Clean Application
    - Added multiple modular routers to the main
    - can be switched to any other framework easily
-4. Use of proper data validation with `pydantic` and `type hints`
-5. OOP approach for CRUD operations
-6. Use of custom Exception using `fastapi.HTTPException`
-7. Logging with `loguru`: what a library!
-8. `pytest` for unit testing
-9. Of course, `github actions` to automate testing (CI)
-10. `Makefile` for professional project automation
-11. Branch protection rule: need to create PR to push new codes to main and the PR triggers pass checks from the pytests
+4. `Pydantic` + `Type Hints`: Strong data validation 💪
+5. OOP-based CRUD: Maintainable and reusable service layers 🛠
+6. Custom Exception Handling with `fastapi.HTTPException` 🚨
+7. Logging with `Loguru`: Simplified yet powerful logging 📝
+8. Automated Testing: `pytest` for unit tests 🔄
+9. `GitHub Actions`: CI pipeline to ensure code quality ✅
+10. `Makefile` for Automation: Professional project workflow ⚙️
+11. Branch Protection Rules: PRs must pass checks before merging 🔐
 
-To be added:
+🛠 Upcoming Enhancements:
 
-- `code coverage` illustration of pytest testing
-- code analysis using `codeql` in github actions
-- implement `black`: auto formatting and check action
+🔹 `Code Coverage` Metrics with pytest 📊
+🔹 Static Code Analysis using `codeql` 🤖
+🔹 Auto-Formatting & Linting with `black` 🎨
 
 > [!TIP]
 > Check the [Resources](#resources) section for a quick start on `FastAPI`, `Pydantic`, `Uvicorn`, `Loguru`, `Pytest` and `Makefile`.
