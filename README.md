@@ -1,5 +1,18 @@
 # Welcome to Hotel Transylvania!
 
+## Table of Contents
+
+1. [Introduction](#introduction)
+2. [Project Setup](#project-setup)
+   - [Makefile Instructions](#makefile-instructions)
+   - [Create and Activate Virtual Environment](#create-and-activate-virtual-environment)
+   - [Install Dependencies](#install-dependencies)
+   - [Run Uvicorn Server](#run-uvicorn-server)
+   - [Running .py & Pytest](#running-py--pytest)
+3. [Resources](#resources)
+4. [Collaborate & Contribute](#collaborate--contribute)
+5. [License](#license)
+
 ## Introduction
 
 This repository contains the codebase for a web application built using FastAPI and Uvicorn. The application consists of simple scalable APIs for guests and rooms, can be integrated to manage hotel reservations and related functionalities. This documentation guides through the processes of setting up the development environment, installing dependencies, running the server, executing tests and incorporating CI unit testing using github actions.
@@ -81,13 +94,13 @@ pip install -r requirements.txt
 pip install -r requirements_test.txt
 ```
 
-### run uvicorn server
+### Run Uvicorn Server
 
 ```
 uvicorn app.main:app --reload
 ```
 
-### running .py & pytest
+### Running .py & Pytest
 
 a. run as module (-m)
 
