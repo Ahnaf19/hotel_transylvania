@@ -43,7 +43,8 @@ help:
 env:
 	@if [ ! -d "$(ENV_NAME)" ]; then \
 		echo "Creating virtual environment..."; \
-		python3 -m venv $(ENV_NAME); \
+        sudo apt install -y python3.10-venv; \
+		python3.10 -m venv $(ENV_NAME); \
 	else \
 		echo "Virtual environment: $(ENV_NAME) already exists"; \
 	fi
