@@ -23,11 +23,11 @@ This repository contains the codebase for a web application built using FastAPI 
 This project highlights:
 
 1. `FastAPI` + `Uvicorn`: Lightning-fast API development for guests and rooms ⚡
-2. Clean & Modular Architecture: Structured for scalability 🔥
+2. Modular Architecture: Structured for scalability 🔥
    - separate application and tests directory
    - clean module/package initiation at each submodule
    - modular directory structure for required data, schemas, services and routers
-3. Clean application
+3. Clean Application
    - Added multiple modular routers to the main
    - can be switched to any other framework easily
 4. `Pydantic` + `Type Hints`: Strong data validation 💪
