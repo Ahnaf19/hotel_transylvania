@@ -9,6 +9,8 @@
    - [Install Dependencies](#install-dependencies)
    - [Run Uvicorn Server](#run-uvicorn-server)
    - [Running .py & Pytest](#running-py--pytest)
+   - [Generate Pytest Code Coverage](#generate-pytest-code-coverage)
+   - [Implement GitHub Action Workflow for testing](#implement-github-action-workflow-for-testing)
 3. [Resources](#resources)
 4. [Collaborate & Contribute](#collaborate--contribute)
 5. [License](#license)
@@ -35,18 +37,18 @@ This project highlights:
 6. Custom Exception Handling with `fastapi.HTTPException` 🚨
 7. Logging with `Loguru`: Simplified yet powerful logging 📝
 8. Automated Testing: `pytest` for unit tests 🔄
-9. `GitHub Actions`: CI pipeline to ensure code quality ✅
-10. `Makefile` for Automation: Professional project workflow ⚙️
-11. Branch Protection Rules: PRs must pass checks before merging 🔐
+9. Code Coverage: `pytest-cov` for generating coverage metrics 📊
+10. `GitHub Actions`: CI pipeline to ensure code quality ✅
+11. `Makefile` for Automation: Professional project workflow ⚙️
+12. Branch Protection Rules: PRs must pass checks before merging 🔐
 
 🛠 Upcoming Enhancements:
 
-🔹 `Code Coverage` Metrics with pytest 📊
 🔹 Static Code Analysis using `codeql` 🤖
 🔹 Auto-Formatting & Linting with `black` 🎨
 
 > [!TIP]
-> Check the [Resources](#resources) section for a quick start on `FastAPI`, `Pydantic`, `Uvicorn`, `Loguru`, `Pytest` and `Makefile`.
+> Check the [Resources](#resources) section for a quick start on `FastAPI`, `Pydantic`, `Uvicorn`, `Loguru`, `Pytest`, `Pytest-cov`, `Makefile` and `GitHub Actions`.
 
 ## Project Setup
 
@@ -136,6 +138,7 @@ python app/main.py
 
 # run pytest
 pytest
+pytest tests/
 pytest tests/testfile.py
 ```
 
@@ -153,8 +156,40 @@ Now, exporting the root path is not necessary, pytest would work. Try:
 ```
 # run pytest
 pytest
+pytest tests/
 pytest tests/test_file_name.py
 ```
+
+### Generate Pytest Code Coverage
+
+Generate code coverage report:
+
+```
+pytest --cov=[repo dir]
+
+# for example:
+pytest --cov=hotel_transylvania
+```
+
+Generate code coverage report HTML:
+
+```
+coverage HTML
+```
+
+This would write HTML report to `htmlcov/index.html`
+
+### Implement GitHub Action Workflow for testing
+
+To automate the pytest testing using GitHub Actions: follow these steps:
+
+1. Create a `.github/workflows` directory in the root of your repository if it doesn't already exist.
+
+2. Inside the `.github/workflows` directory, create/add `yml`/`yaml` file that contains the workflow jobs. For example see: [unit_tests.yml](.github/workflows/unit_tests.yml)
+
+3. Add event triggers like on push/pull request and branch/file filters according to need.
+
+This workflow will trigger on every push and pull request to the `main` branch. It will set up Python 3.10, install the dependencies, and run the tests with coverage.
 
 ## Resources
 
@@ -179,8 +214,22 @@ pytest tests/test_file_name.py
 - Running ASGI server with `uvicorn` <a href="https://www.uvicorn.org/">documentation</a>
 
 - Testing with `pytest`:
+
   - Official <a href="https://docs.pytest.org/en/7.1.x/">documentation</a>
   - basic usage of `pytest` from this repo: <a href="https://github.com/Ahnaf19/learn_pytest">learn_pytest</a>
+
+- Pytest Code Coverage with `pytest-cov`:
+
+  - Coverage report generation with Pytest-cov <a href="https://pytest-cov.readthedocs.io/en/latest/readme.html">documenation</a>
+
+- CI with GitHub Actions:
+  - <a href="https://docs.github.com/en/actions/about-github-actions/understanding-github-actions#the-components-of-github-actions">Components</a> of an Action
+  - Official GitHub Actions <a href="https://docs.github.com/en/actions">documentation</a>
+  - Learn <a hreef="https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/triggering-a-workflow#about-workflow-triggers">triggering a workflow</a>
+  - <a href="https://learnxinyminutes.com/yaml/">Learn</a> `yml` or `yaml` file
+  - Frequently used community actions:
+    - Clone repo in the workflow: <a href="https://github.com/actions/checkout">actions/checkout</a>
+    - Set up python in the workflow: <a href="https://github.com/actions/setup-python">actions/setup-python</a>
 
 ## Collaborate & Contribute
 
