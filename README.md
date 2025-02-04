@@ -225,7 +225,7 @@ This workflow will trigger on every push and pull request to the `main` branch. 
 - CI with GitHub Actions:
   - <a href="https://docs.github.com/en/actions/about-github-actions/understanding-github-actions#the-components-of-github-actions">Components</a> of an Action
   - Official GitHub Actions <a href="https://docs.github.com/en/actions">documentation</a>
-  - Learn <a hreef="https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/triggering-a-workflow#about-workflow-triggers">triggering a workflow</a>
+  - Learn <a hreef="https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/triggering-a-workflow#about-workflow-triggers">triggering</a> a workflow
   - <a href="https://learnxinyminutes.com/yaml/">Learn</a> `yml` or `yaml` file
   - Frequently used community actions:
     - Clone repo in the workflow: <a href="https://github.com/actions/checkout">actions/checkout</a>
