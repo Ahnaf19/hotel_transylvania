@@ -4,9 +4,9 @@
 
 1. [Introduction](#introduction)
 2. [Project Setup](#project-setup)
-   - [Makefile Instructions](#makefile-instructions)
    - [Create and Activate Virtual Environment](#create-and-activate-virtual-environment)
    - [Install Dependencies](#install-dependencies)
+   - [Makefile Instructions](#makefile-instructions)
    - [Run Uvicorn Server](#run-uvicorn-server)
    - [Running .py & Pytest](#running-py--pytest)
    - [Generate Pytest Code Coverage](#generate-pytest-code-coverage)
@@ -52,22 +52,6 @@ This project highlights:
 
 ## Project Setup
 
-### Makefile Instructions
-
-The repository includes a `Makefile` to simplify common tasks.
-
-> might need to install `Makefile` beforehand.
-
-#### Usage
-
-To use the `Makefile`, run:
-
-```
-make [target]
-```
-
-Try running `make help` to see all available `targets`.
-
 ### Create and Activate Virtual Environment
 
 **Python Version**: Developed on `python 3.10.16`. Also tested and worked on [`3.11.11`, `3.12.8`, `3.13.1`]
@@ -95,6 +79,22 @@ pip install -r requirements.txt
 # for testing
 pip install -r requirements_test.txt
 ```
+
+### Makefile Instructions
+
+The repository includes a `Makefile` to simplify common tasks.
+
+> might need to install `Makefile` beforehand.
+
+#### Usage
+
+To use the `Makefile`, run:
+
+```
+make [target]
+```
+
+Try running `make help` to see all available `targets`.
 
 ### Run Uvicorn Server
 
