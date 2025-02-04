@@ -9,6 +9,7 @@
    - [Install Dependencies](#install-dependencies)
    - [Run Uvicorn Server](#run-uvicorn-server)
    - [Running .py & Pytest](#running-py--pytest)
+   - [Generate Pytest Code Coverage](#generate-pytest-code-coverage)
 3. [Resources](#resources)
 4. [Collaborate & Contribute](#collaborate--contribute)
 5. [License](#license)
@@ -35,18 +36,18 @@ This project highlights:
 6. Custom Exception Handling with `fastapi.HTTPException` 🚨
 7. Logging with `Loguru`: Simplified yet powerful logging 📝
 8. Automated Testing: `pytest` for unit tests 🔄
-9. `GitHub Actions`: CI pipeline to ensure code quality ✅
-10. `Makefile` for Automation: Professional project workflow ⚙️
-11. Branch Protection Rules: PRs must pass checks before merging 🔐
+9. Code Coverage: `pytest-cov` for generating coverage metrics 📊
+10. `GitHub Actions`: CI pipeline to ensure code quality ✅
+11. `Makefile` for Automation: Professional project workflow ⚙️
+12. Branch Protection Rules: PRs must pass checks before merging 🔐
 
 🛠 Upcoming Enhancements:
 
-🔹 `Code Coverage` Metrics with pytest 📊
 🔹 Static Code Analysis using `codeql` 🤖
 🔹 Auto-Formatting & Linting with `black` 🎨
 
 > [!TIP]
-> Check the [Resources](#resources) section for a quick start on `FastAPI`, `Pydantic`, `Uvicorn`, `Loguru`, `Pytest` and `Makefile`.
+> Check the [Resources](#resources) section for a quick start on `FastAPI`, `Pydantic`, `Uvicorn`, `Loguru`, `Pytest`, `Pytest-cov` and `Makefile`.
 
 ## Project Setup
 
@@ -136,6 +137,7 @@ python app/main.py
 
 # run pytest
 pytest
+pytest tests/
 pytest tests/testfile.py
 ```
 
@@ -153,8 +155,28 @@ Now, exporting the root path is not necessary, pytest would work. Try:
 ```
 # run pytest
 pytest
+pytest tests/
 pytest tests/test_file_name.py
 ```
+
+### Generate Pytest Code Coverage
+
+Generate code coverage report:
+
+```
+pytest --cov=[repo dir]
+
+# for example:
+pytest --cov=hotel_transylvania
+```
+
+Generate code coverage report HTML:
+
+```
+coverage HTML
+```
+
+This would write HTML report to `htmlcov/index.html`
 
 ## Resources
 
@@ -179,8 +201,13 @@ pytest tests/test_file_name.py
 - Running ASGI server with `uvicorn` <a href="https://www.uvicorn.org/">documentation</a>
 
 - Testing with `pytest`:
+
   - Official <a href="https://docs.pytest.org/en/7.1.x/">documentation</a>
   - basic usage of `pytest` from this repo: <a href="https://github.com/Ahnaf19/learn_pytest">learn_pytest</a>
+
+- Pytest Code Coverage with `pytest-cov`:
+
+  - Coverage report generation with Pytest-cov <a href="https://pytest-cov.readthedocs.io/en/latest/readme.html">documenation</a>
 
 ## Collaborate & Contribute
 
