@@ -22,6 +22,8 @@ This repository contains the codebase for a web application built using FastAPI 
 > [!NOTE]
 > Developed on `python 3.10.16`. Also tested and worked on [`3.11.11`, `3.12.8`, `3.13.1`]
 
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)
+
 This project highlights:
 
 1. `FastAPI` + `Uvicorn`: Lightning-fast API development for guests and rooms ⚡
