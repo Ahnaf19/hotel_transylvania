@@ -43,14 +43,16 @@ This project highlights:
 10. `GitHub Actions`: CI pipeline to ensure code quality ✅
 11. `Makefile` for Automation: Professional project workflow ⚙️
 12. Branch Protection Rules: PRs must pass checks before merging 🔐
+13. Code Analysis using `codeql`: GitHub Actions & Python code vulnerability check 🤖
 
 🛠 Upcoming Enhancements:
 
-🔹 Static Code Analysis using `codeql` 🤖
-🔹 Auto-Formatting & Linting with `black` 🎨
+- [x] Code Coverage: `pytest-cov` for generating coverage metrics 📊
+- [x] Static Code Analysis using `codeql` 🤖
+- [ ] Auto-Formatting & Linting with `black` 🎨
 
 > [!TIP]
-> Check the [Resources](#resources) section for a quick start on `FastAPI`, `Pydantic`, `Uvicorn`, `Loguru`, `Pytest`, `Pytest-cov`, `Makefile` and `GitHub Actions`.
+> Check the [Resources](#resources) section for a quick start on `FastAPI`, `Pydantic`, `Uvicorn`, `Loguru`, `Pytest`, `Pytest-cov`, `Makefile`, `CodeQL` and `GitHub Actions`.
 
 ## Project Setup
 
@@ -224,14 +226,22 @@ This workflow will trigger on every push and pull request to the `main` branch. 
 
   - Coverage report generation with Pytest-cov <a href="https://pytest-cov.readthedocs.io/en/latest/readme.html">documenation</a>
 
-- CI with GitHub Actions:
-  - <a href="https://docs.github.com/en/actions/about-github-actions/understanding-github-actions#the-components-of-github-actions">Components</a> of an Action
-  - Official GitHub Actions <a href="https://docs.github.com/en/actions">documentation</a>
-  - Learn <a href="https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/triggering-a-workflow#about-workflow-triggers">triggering</a> a workflow
-  - <a href="https://learnxinyminutes.com/yaml/">Learn</a> `yml` or `yaml` file
-  - Frequently used community actions:
-    - Clone repo in the workflow: <a href="https://github.com/actions/checkout">actions/checkout</a>
-    - Set up python in the workflow: <a href="https://github.com/actions/setup-python">actions/setup-python</a>
+- CI:
+
+  - GitHub Actions
+
+    - <a href="https://docs.github.com/en/actions/about-github-actions/understanding-github-actions#the-components-of-github-actions">Components</a> of an Action
+    - Official GitHub Actions <a href="https://docs.github.com/en/actions">documentation</a>
+    - Learn <a href="https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/triggering-a-workflow#about-workflow-triggers">triggering</a> a workflow
+    - <a href="https://learnxinyminutes.com/yaml/">Learn</a> `yml` or `yaml` file
+    - Frequently used community actions:
+      - Clone repo in the workflow: <a href="https://github.com/actions/checkout">actions/checkout</a>
+      - Set up python in the workflow: <a href="https://github.com/actions/setup-python">actions/setup-python</a>
+
+  - CodeQL
+
+    - GitHub security <a href="https://docs.github.com/en/code-security/getting-started/github-security-features">features</a>
+    - CodeQL <a href="https://docs.github.com/en/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning">default setup</a>
 
 ## Collaborate & Contribute
 
