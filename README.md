@@ -29,7 +29,7 @@ This repository contains the codebase for a web application built using FastAPI 
 > [!NOTE]
 > Developed on `python 3.10.16`. Also tested and worked on [`3.11.11`, `3.12.8`, `3.13.1`]
 
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi) ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 
 This project highlights:
 
@@ -60,6 +60,7 @@ This project highlights:
 - [x] Code Auto-formatting & Linting with Pre-commit (check-yaml, end-of-file-fixer, trailing-whitespace, black, isort, mypy) 🎨
 - [ ] add pytest coverage in unit test action
 - [ ] add action for format checks
+- [ ] dockerize the repo
 
 > [!TIP]
 > Check the [Resources](#resources) section for a quick start on `FastAPI`, `Pydantic`, `Uvicorn`, `Loguru`, `Pytest`, `Pytest-cov`, `Makefile`, `CodeQL`, `pre-commit` and `GitHub Actions`.
