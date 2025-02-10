@@ -1,4 +1,7 @@
 name: Test Guest Router
+permissions:
+  contents: read
+  pull-requests: write
 
 on:
   pull_request:
