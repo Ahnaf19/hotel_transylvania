@@ -4,16 +4,23 @@
 
 1. [Introduction](#introduction)
 2. [Project Setup](#project-setup)
-   - [Create and Activate Virtual Environment](#create-and-activate-virtual-environment)
-   - [Install Dependencies](#install-dependencies)
-   - [Makefile Instructions](#makefile-instructions)
-   - [Run Uvicorn Server](#run-uvicorn-server)
-   - [Running .py & Pytest](#running-py--pytest)
-   - [Generate Pytest Code Coverage](#generate-pytest-code-coverage)
-   - [Implement GitHub Action Workflow for testing](#implement-github-action-workflow-for-testing)
-3. [Resources](#resources)
-4. [Collaborate & Contribute](#collaborate--contribute)
-5. [License](#license)
+
+- [Create and Activate Virtual Environment](#create-and-activate-virtual-environment)
+- [Install Dependencies](#install-dependencies)
+- [Makefile Instructions](#makefile-instructions)
+- [Run Uvicorn Server](#run-uvicorn-server)
+- [Running .py & Pytest](#running-py--pytest)
+- [Generate Pytest Code Coverage](#generate-pytest-code-coverage)
+
+3. [Continuous Integration (CI)](#continuous-integration-ci)
+
+- [Implement GitHub Action Workflow for testing](#ci-implement-github-action-workflow-for-testing)
+- [Code Formatting & Linting with Pre-commit](#ci-code-formatting--linting-with-pre-commit-black-isort-mypy)
+- [Code Scanning with CodeQL](#ci-code-scanning-with-codeql)
+
+4. [Resources](#resources)
+5. [Collaborate & Contribute](#collaborate--contribute)
+6. [License](#license)
 
 ## Introduction
 
@@ -22,7 +29,7 @@ This repository contains the codebase for a web application built using FastAPI 
 > [!NOTE]
 > Developed on `python 3.10.16`. Also tested and worked on [`3.11.11`, `3.12.8`, `3.13.1`]
 
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi) ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 
 This project highlights:
 
@@ -53,6 +60,7 @@ This project highlights:
 - [x] Code Auto-formatting & Linting with Pre-commit (check-yaml, end-of-file-fixer, trailing-whitespace, black, isort, mypy) 🎨
 - [ ] add pytest coverage in unit test action
 - [ ] add action for format checks
+- [ ] dockerize the repo & add resources
 
 > [!TIP]
 > Check the [Resources](#resources) section for a quick start on `FastAPI`, `Pydantic`, `Uvicorn`, `Loguru`, `Pytest`, `Pytest-cov`, `Makefile`, `CodeQL`, `pre-commit` and `GitHub Actions`.
