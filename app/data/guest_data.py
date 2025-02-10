@@ -1,6 +1,4 @@
 from app.schemas import guest_schema
-from loguru import logger
-
 
 # Dummy guest data for testing purposes
 dummy_guest_local = {
@@ -11,14 +9,14 @@ dummy_guest_local = {
         {
             "guest_arrival": "2021-10-01",
             "guest_room_id": "101",
-            "guest_departure": "2021-10-03"
+            "guest_departure": "2021-10-03",
         },
         {
             "guest_arrival": "2021-10-05",
             "guest_room_id": "102",
-            "guest_departure": None
-        }
-    ]
+            "guest_departure": None,
+        },
+    ],
 }
 
 # Initialize the dummy guest data

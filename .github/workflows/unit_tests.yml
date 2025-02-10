@@ -27,7 +27,7 @@ jobs:
 
       - name: Set python path
         run:
-          echo "PYTHONPATH=${{ github.workspace }}" >> $GITHUB_ENV          
+          echo "PYTHONPATH=${{ github.workspace }}" >> $GITHUB_ENV
 
       - name: Install test dependencies
         run: |

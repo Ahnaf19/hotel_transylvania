@@ -1,6 +1,10 @@
-from app.schemas.guest_schema import GuestData, GuestBase, UpdateGuest
-from app.exceptions.guest_exceptions import GuestNotFoundException, GuestAlreadyExistsException
 from loguru import logger
+
+from app.exceptions.guest_exceptions import (
+    GuestAlreadyExistsException,
+    GuestNotFoundException,
+)
+from app.schemas.guest_schema import GuestBase, GuestData, UpdateGuest
 
 
 class GuestService:
@@ -16,7 +20,7 @@ class GuestService:
         """
         self.dummy_guest_data = dummy_guest_data
         logger.debug("GuestService initialized")
-    
+
     def get_guest_by_id(self, guest_id: str) -> GuestBase:
         """
         Retrieve a guest by their ID.
@@ -52,7 +56,7 @@ class GuestService:
         # Add the new guest to the dummy data
         self.dummy_guest_data.guests[guest.guest_id] = guest
         logger.debug(f"Guest with id {guest.guest_id} added: {guest.model_dump()}")
-        return guest 
+        return guest
 
     def delete_guest_by_id(self, guest_id: str) -> GuestBase:
         """
