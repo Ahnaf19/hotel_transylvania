@@ -60,7 +60,7 @@ This project highlights:
 - [x] Code Auto-formatting & Linting with Pre-commit (check-yaml, end-of-file-fixer, trailing-whitespace, black, isort, mypy) 🎨
 - [ ] add pytest coverage in unit test action
 - [ ] add action for format checks
-- [ ] dockerize the repo
+- [ ] dockerize the repo & add resources
 
 > [!TIP]
 > Check the [Resources](#resources) section for a quick start on `FastAPI`, `Pydantic`, `Uvicorn`, `Loguru`, `Pytest`, `Pytest-cov`, `Makefile`, `CodeQL`, `pre-commit` and `GitHub Actions`.
