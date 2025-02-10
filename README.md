@@ -44,15 +44,16 @@ This project highlights:
 11. `Makefile` for Automation: Professional project workflow ⚙️
 12. Branch Protection Rules: PRs must pass checks before merging 🔐
 13. Code Analysis using `codeql`: GitHub Actions & Python code vulnerability check 🤖
+14. Code Auto-formatting & Linting with Pre-commit (check-yaml, end-of-file-fixer, trailing-whitespace, black, isort, mypy) 🎨
 
 🛠 Upcoming Enhancements:
 
 - [x] Code Coverage: `pytest-cov` for generating coverage metrics 📊
 - [x] Static Code Analysis using `codeql` 🤖
-- [ ] Auto-Formatting & Linting with `black` 🎨
+- [x] Code Auto-formatting & Linting with Pre-commit (black, isort, mypy) 🎨
 
 > [!TIP]
-> Check the [Resources](#resources) section for a quick start on `FastAPI`, `Pydantic`, `Uvicorn`, `Loguru`, `Pytest`, `Pytest-cov`, `Makefile`, `CodeQL` and `GitHub Actions`.
+> Check the [Resources](#resources) section for a quick start on `FastAPI`, `Pydantic`, `Uvicorn`, `Loguru`, `Pytest`, `Pytest-cov`, `Makefile`, `CodeQL`, `pre-commit` and `GitHub Actions`.
 
 ## Project Setup
 
@@ -183,21 +184,112 @@ coverage HTML
 
 This would write HTML report to `htmlcov/index.html`
 
-### Implement GitHub Action Workflow for testing
+### Continuous Integration (CI)
 
-To automate the pytest testing using GitHub Actions: follow these steps:
+- unit testing using GitHub Actions
+- Code formatting & linting with Pre-commit (black, isort, mypy)
+- Code scanning with CodeQL
+
+#### CI: Implement GitHub Action Workflow for testing
+
+To automate the pytest testing using GitHub Actions, follow these steps:
 
 1. Create a `.github/workflows` directory in the root of your repository if it doesn't already exist.
 
-2. Inside the `.github/workflows` directory, create/add `yml`/`yaml` file that contains the workflow jobs. For example see: [unit_tests.yml](.github/workflows/unit_tests.yml)
+2. Inside the `.github/workflows` directory, create/add `.yml`/`.yaml` file that contains the workflow jobs. For example see: [unit_tests.yml](.github/workflows/unit_tests.yml)
 
 3. Add event triggers like on push/pull request and branch/file filters according to need.
 
 This workflow will trigger on every push and pull request to the `main` branch. It will set up Python 3.10, install the dependencies, and run the tests with coverage.
 
-### Code Scanning with CodeQL
+> [!TIP]
+> Check the [Resources](#resources) `CI/GitHub Actions` section for more.
 
-From the `security` tab of the repo, enable `code scanning alert` with `default` configuration. Check the [Resources](#resources) `CI/` section for more.
+#### CI: Code Formatting & Linting with Pre-commit (black, isort, mypy)
+
+To auto format the codebase, follow these steps:
+
+1. at repo `root/` create a `.pre-commit-config.yaml` file. For example see: [.pre-commit-config.yaml](.pre-commit-config.yaml)
+2. Add necessary repos and hooks to the `.yaml` file. In this repo following hooks are initiated:
+
+- `check-yaml`: Validates YAML files for syntax errors.
+- `end-of-file-fixer`: Ensures files end with a newline.
+- `trailing-whitespace`: Removes trailing whitespace from files.
+- `black`: Automatically formats code to adhere to PEP 8 standards.
+- `isort`: Sorts and organizes imports in the code.
+- `mypy`: Performs static type checking to ensure type correctness.
+
+Don't forget to add the latest version/revision available for all hooks.
+
+3. run the following command to set up the hooks, configured hooks will be run at each commit.
+
+```
+pre-commit install
+pre-commit autoupdate
+```
+
+> [!NOTE]
+> after pre-commit hooks are installed, every time `git commit` is run, the specified hooks will automatically check and format the code before allowing the commit.
+
+> [!WARNING]
+> If any check fails, corresponding hook will block the commit, make the required changes to be committed next.
+
+> [!TIP]
+> Check the [Resources](#resources) `CI/pre-commit Hooks` section for more.
+
+##### Invoke Manual Format
+
+```
+# Format all directories
+[black | isort | mypy --format] .
+
+# Format a specific file or directory
+[black | isort | mypy --format] path/to/file_or_directory
+```
+
+##### Invoke Manual Check
+
+Run all pre-commit hooks:
+
+```
+# Check all formatting for all directories
+pre-commit run --all-files
+
+# Run for a specific directory or file
+pre-commit run --files path/to/file_or_directory
+
+# run explicit hook
+pre-commit run black --all-files  # Only run Black
+```
+
+Run specific hook:
+
+```
+# Check formatting, import sorting, code style, and type checking for all directories
+[black --check | isort --check-only | flake8 | mypy] .
+
+# Check formatting, import sorting, code style, and type checking for a specific file or directory
+[black --check | isort --check-only | flake8 | mypy] path/to/file_or_directory
+```
+
+##### Add, modify and Update hooks
+
+> [!NOTE]
+> To add or modify hooks, write accordingly in the [.pre-commit-config.yaml](.pre-commit-config.yaml) file.
+
+Auto udate hooks:
+
+```
+pre-commit autoupdate
+
+```
+
+#### CI: Code Scanning with CodeQL
+
+From the `security` tab of the repo, enable `code scanning alert` with `default` configuration.
+
+> [!TIP]
+> Check the [Resources](#resources) `CI/CodeQL` section for more.
 
 this now enables:
 
@@ -245,11 +337,16 @@ this now enables:
 
     - <a href="https://docs.github.com/en/actions/about-github-actions/understanding-github-actions#the-components-of-github-actions">Components</a> of an Action
     - Official GitHub Actions <a href="https://docs.github.com/en/actions">documentation</a>
-    - Learn <a href="https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/triggering-a-workflow#about-workflow-triggers">triggering</a> a workflow
+    - Learn <a href="https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/triggering-a-workflow#about-workflow-triggers">triggering a workflow</a>
     - <a href="https://learnxinyminutes.com/yaml/">Learn</a> `yml` or `yaml` file
     - Frequently used community actions:
       - Clone repo in the workflow: <a href="https://github.com/actions/checkout">actions/checkout</a>
       - Set up python in the workflow: <a href="https://github.com/actions/setup-python">actions/setup-python</a>
+
+  - Pre-commit Hooks (black, isort, mypy)
+
+    - Follow the official pre-commit <a href="https://pre-commit.com/">quickstart documentation</a>
+    - Find suitable <a href="https://pre-commit.com/hooks.html">hooks</a>
 
   - CodeQL
 

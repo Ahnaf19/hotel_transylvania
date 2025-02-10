@@ -1,6 +1,10 @@
-from app.schemas.room_schema import *
-from app.exceptions.room_exceptions import RoomNotFoundException, RoomAlreadyExistsException
 from loguru import logger
+
+from app.exceptions.room_exceptions import (
+    RoomAlreadyExistsException,
+    RoomNotFoundException,
+)
+from app.schemas.room_schema import RoomBase, RoomData, UpdateRoom
 
 
 class RoomService:
@@ -16,7 +20,7 @@ class RoomService:
         """
         self.dummy_room_data = dummy_room_data
         logger.debug("RoomService initialized")
-    
+
     def get_room_by_id(self, room_id: int) -> RoomBase:
         """
         Retrieve a room by its ID.
@@ -46,7 +50,7 @@ class RoomService:
             raise RoomAlreadyExistsException(room.room_id)
         self.dummy_room_data.rooms[room.room_id] = room
         logger.debug(f"Room with id {room.room_id} added: {room.model_dump()}")
-        return room 
+        return room
 
     def delete_room_by_id(self, room_id: int) -> RoomBase:
         """
@@ -73,7 +77,9 @@ class RoomService:
         :raises RoomNotFoundException: If the room with the given ID is not found.
         """
         response_room = self.get_room_by_id(room_id)
-        update_data = update_room.model_dump(exclude_unset=True)  # Exclude data that is not set/updated
+        update_data = update_room.model_dump(
+            exclude_unset=True
+        )  # Exclude data that is not set/updated
         response_room.update(**update_data)  # Update the room data
         logger.debug(f"Room with id {room_id} updated: {response_room.model_dump()}")
         return response_room

@@ -1,11 +1,10 @@
 from app.schemas import room_schema
 
-
 room_data_local = {
-    'room_ids': [101, 102, 103, 104, 105],
-    'room_types': ["Single", "Double", "Triple", "Quad", "Queen"],
-    'room_prices': [1000.0, 1500.0, 2000.0, 2500.0, 3000.0],
-    'room_is_available': [True, True, True, True, True]
+    "room_ids": [101, 102, 103, 104, 105],
+    "room_types": ["Single", "Double", "Triple", "Quad", "Queen"],
+    "room_prices": [1000.0, 1500.0, 2000.0, 2500.0, 3000.0],
+    "room_is_available": [True, True, True, True, True],
 }
 
 # initialize the dummy guest data

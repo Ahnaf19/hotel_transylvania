@@ -1,13 +1,15 @@
 from typing import Optional
+
 from pydantic import BaseModel
 
 
 class RoomBase(BaseModel):
     """
     A class to represent a room in the hotel.
-    
+
     This schema uses Pydantic for data validation and serialization.
     """
+
     room_id: int
     room_type: str
     room_price: float
@@ -17,25 +19,29 @@ class RoomBase(BaseModel):
     def update(self, **kwargs) -> None:
         """
         Update the attributes of the room with the given keyword arguments.
-        
+
         :param kwargs: Dictionary of attributes to update.
         """
         for key, value in kwargs.items():
             if hasattr(self, key):
                 setattr(self, key, value)
 
+
 class RoomData(BaseModel):
     """
     A class to manage multiple rooms in the hotel.
-    
+
     This schema uses Pydantic for data validation and serialization.
     """
-    rooms: dict[int, RoomBase] = {} # TODO: convert this int to str addressing the json serialization issue
+
+    rooms: dict[int, RoomBase] = (
+        {}
+    )  # TODO: convert this int to str addressing the json serialization issue
 
     def create_dummy_rooms(self, **dummy_room_data) -> None:
         """
         Create dummy rooms with the provided data.
-        
+
         :param dummy_room_data: Dictionary containing lists of room attributes.
         """
         room_ids = dummy_room_data.get("room_ids", [])
@@ -45,14 +51,14 @@ class RoomData(BaseModel):
 
         for i in range(len(room_ids)):
             room = {
-                'room_id': int(room_ids[i]),
-                'room_type': str(room_types[i]),
-                'room_price': float(room_prices[i]),
-                'room_is_available': bool(room_is_available[i]),
-                'current_guest_id': None
+                "room_id": int(room_ids[i]),
+                "room_type": str(room_types[i]),
+                "room_price": float(room_prices[i]),
+                "room_is_available": bool(room_is_available[i]),
+                "current_guest_id": None,
             }
             self.add_dummy_room(room)
-            
+
         # ! Hardcoded for testing purposes
         self.rooms[102].current_guest_id = "23159162-dd67-4a2a-8054-d6be6c0379ca"
         self.rooms[102].room_is_available = False
@@ -60,7 +66,7 @@ class RoomData(BaseModel):
     def add_dummy_room(self, room) -> RoomBase:
         """
         Add a dummy room to the rooms dictionary.
-        
+
         :param room: Dictionary containing room attributes.
         :return: The newly created RoomBase object.
         """
@@ -72,9 +78,10 @@ class RoomData(BaseModel):
 class UpdateRoom(BaseModel):
     """
     A class to represent the data required to update a room.
-    
+
     This schema uses Pydantic for data validation and serialization.
     """
+
     room_id: Optional[int] = None
     room_type: Optional[str] = None
     room_price: Optional[float] = None
