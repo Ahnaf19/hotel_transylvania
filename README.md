@@ -195,6 +195,19 @@ To automate the pytest testing using GitHub Actions: follow these steps:
 
 This workflow will trigger on every push and pull request to the `main` branch. It will set up Python 3.10, install the dependencies, and run the tests with coverage.
 
+### Code Scanning with CodeQL
+
+From the `security` tab of the repo, enable `code scanning alert` with `default` configuration. Check the [Resources](#resources) `CI/` section for more.
+
+this now enables:
+
+- ✅ Automated Security Scanning – Detects vulnerabilities and coding issues.
+- ✅ Alerts for Security Issues – Displays issue type, severity, file location, and suggested fixes.
+- ✅ PR & Push Scanning – Blocks insecure code from merging until fixed.
+- ✅ Custom Query Support – Use CodeQL to define custom security checks.
+- ✅ Integration with GitHub Actions – Automate scanning on every commit and PR.
+- ✅ Security Insights & Compliance – Helps with secure coding practices and audits.
+
 ## Resources
 
 - FastAPI official <a href="https://fastapi.tiangolo.com/learn/">documentation</a>
