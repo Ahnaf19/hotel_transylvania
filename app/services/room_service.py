@@ -9,7 +9,7 @@ from app.schemas.room_schema import RoomBase, RoomData, UpdateRoom
 
 class RoomService:
     """
-    Service class to handle room operations.
+    Service class to handle room operations!
     """
 
     def __init__(self, dummy_room_data: RoomData) -> None:
