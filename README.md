@@ -50,7 +50,7 @@ This project highlights:
 
 - [x] Code Coverage: `pytest-cov` for generating coverage metrics 📊
 - [x] Static Code Analysis using `codeql` 🤖
-- [x] Code Auto-formatting & Linting with Pre-commit (black, isort, mypy) 🎨
+- [x] Code Auto-formatting & Linting with Pre-commit (check-yaml, end-of-file-fixer, trailing-whitespace, black, isort, mypy) 🎨
 
 > [!TIP]
 > Check the [Resources](#resources) section for a quick start on `FastAPI`, `Pydantic`, `Uvicorn`, `Loguru`, `Pytest`, `Pytest-cov`, `Makefile`, `CodeQL`, `pre-commit` and `GitHub Actions`.
