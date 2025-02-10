@@ -4,16 +4,23 @@
 
 1. [Introduction](#introduction)
 2. [Project Setup](#project-setup)
-   - [Create and Activate Virtual Environment](#create-and-activate-virtual-environment)
-   - [Install Dependencies](#install-dependencies)
-   - [Makefile Instructions](#makefile-instructions)
-   - [Run Uvicorn Server](#run-uvicorn-server)
-   - [Running .py & Pytest](#running-py--pytest)
-   - [Generate Pytest Code Coverage](#generate-pytest-code-coverage)
-   - [Implement GitHub Action Workflow for testing](#implement-github-action-workflow-for-testing)
-3. [Resources](#resources)
-4. [Collaborate & Contribute](#collaborate--contribute)
-5. [License](#license)
+
+- [Create and Activate Virtual Environment](#create-and-activate-virtual-environment)
+- [Install Dependencies](#install-dependencies)
+- [Makefile Instructions](#makefile-instructions)
+- [Run Uvicorn Server](#run-uvicorn-server)
+- [Running .py & Pytest](#running-py--pytest)
+- [Generate Pytest Code Coverage](#generate-pytest-code-coverage)
+
+3. [Continuous Integration (CI)](#continuous-integration-ci)
+
+- [Implement GitHub Action Workflow for testing](#ci-implement-github-action-workflow-for-testing)
+- [Code Formatting & Linting with Pre-commit](#ci-code-formatting--linting-with-pre-commit-black-isort-mypy)
+- [Code Scanning with CodeQL](#ci-code-scanning-with-codeql)
+
+4. [Resources](#resources)
+5. [Collaborate & Contribute](#collaborate--contribute)
+6. [License](#license)
 
 ## Introduction
 
