@@ -53,17 +53,81 @@ This project highlights:
 12. Branch Protection Rules: PRs must pass checks before merging 🔐
 13. Code Analysis using `codeql`: GitHub Actions & Python code vulnerability check 🤖
 14. Code Auto-formatting & Linting with Pre-commit (check-yaml, end-of-file-fixer, trailing-whitespace, black, isort, mypy) 🎨
+15. Dockerized the repo 🐳
 
 🛠 Upcoming Enhancements:
 
 - [x] Code Coverage: `pytest-cov` for generating coverage metrics 📊
 - [x] Static Code Analysis using `codeql` 🤖
 - [x] Code Auto-formatting & Linting with Pre-commit (check-yaml, end-of-file-fixer, trailing-whitespace, black, isort, mypy) 🎨
-- [x] add action for format checks
-- [] dockerize the repo & add resources
+- [x] add GitHub Action for format checks ✅
+- [x] dockerize the repo & add resources 🐳
 
 > [!TIP]
 > Check the [Resources](#resources) section for a quick start on `FastAPI`, `Pydantic`, `Uvicorn`, `Loguru`, `Pytest`, `Pytest-cov`, `Makefile`, `CodeQL`, `pre-commit` and `GitHub Actions`.
+
+## Docker Build & Run
+
+To build and run the application using Docker, follow these steps:
+
+### Prerequisites
+
+Ensure you have Docker installed on your machine. You can download it from [here](https://www.docker.com/products/docker-desktop).
+
+#### Build Docker Image
+
+> [!IMPORTANT] > `Docker Daemon` or `Docker Desktop` must be running while building Docker Image.
+
+Navigate to the root directory of the repo where the `Dockerfile` is located and run the following command to build the Docker image:
+
+```sh
+docker build -t hotel_transylvania:latest .
+```
+
+#### Run Docker Container
+
+After building the Docker image, you can run it using the following command:
+
+```sh
+docker run -dp 8000:8000 hotel_transylvania:latest
+```
+
+This will start the application in a Docker container. The application can be accessed at `http://localhost:8000` e.g. `127.0.0.1:8000`
+
+> [!NOTE] > `-dp` (`-d` & `-p`) tag runs the container in detached mode (in the background, terminal is available to use right away) and container port `8000` is mapped to local port `8000`.
+
+#### Stopping the Container
+
+To stop the running container, first find the container ID using:
+
+```sh
+docker ps
+```
+
+Then stop the container using:
+
+```sh
+docker stop <container_id>
+```
+
+#### Removing the Container
+
+```sh
+docker rm <container_id>
+```
+
+#### Removing the Docker Image
+
+To remove the Docker image, use:
+
+```sh
+docker rmi hotel_transylvania:latest
+```
+
+This will delete the Docker image from your local machine.
+
+> [!TIP]
+> Check the [Resources](#resources) `Dockerization` section for more.
 
 ## Project Setup
 
@@ -110,6 +174,9 @@ make [target]
 ```
 
 Try running `make help` to see all available `targets`.
+
+> [!TIP]
+> Check the [Resources](#resources) `Makefile` section for more.
 
 ### Run Uvicorn Server
 
@@ -362,6 +429,10 @@ this now enables:
 
     - GitHub security <a href="https://docs.github.com/en/code-security/getting-started/github-security-features">features</a>
     - CodeQL <a href="https://docs.github.com/en/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning">default setup</a>
+
+- Dockerization:
+  - Microsoft Documentation: <a href="https://learn.microsoft.com/en-us/visualstudio/docker/tutorials/docker-tutorial?WT.mc_id=vscode_docker_aka_getstartedwithdocker">Create a docker app with vs code</a>
+  - follow these awesome youtube videos for quick comprehension: [<a href="https://www.youtube.com/watch?v=0TFWtfFY87U">vide01</a>, <a href="https://www.youtube.com/watch?v=gAkwW2tuIqE">video02</a>]
 
 ## Collaborate & Contribute
 
