@@ -30,13 +30,12 @@ This repository contains the codebase for a web application built using FastAPI 
 > Developed on `python 3.10.16`. Also tested and worked on [`3.11.11`, `3.12.8`, `3.13.1`]
 
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi) ![Pydantic](https://img.shields.io/badge/pydantic-4A91A2?style=for-the-badge&logo=python&logoColor=white) ![Pytest](https://img.shields.io/badge/pytest-0A9EDC?style=for-the-badge&logo=pytest&logoColor=white) ![Uvicorn](https://img.shields.io/badge/uvicorn-111111?style=for-the-badge&logo=uvicorn&logoColor=white) ![Loguru](https://img.shields.io/badge/loguru-FF9C00?style=for-the-badge&logo=python&logoColor=white) ![Makefile](https://img.shields.io/badge/makefile-075EAF?style=for-the-badge&logo=gnu&logoColor=white) ![Black](https://img.shields.io/badge/black-000000?style=for-the-badge&logo=python&logoColor=white) ![Pre-commit](https://img.shields.io/badge/pre--commit-FAAF3A?style=for-the-badge&logo=pre-commit&logoColor=white) ![CodeQL](https://img.shields.io/badge/codeql-006F99?style=for-the-badge&logo=github-actions&logoColor=white)
- ![GitHub Actions](https://img.shields.io/badge/github%20actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white) ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white) ![MVC Architecture](https://img.shields.io/badge/MVC%20Architecture-5C6BC0?style=for-the-badge&logo=angular&logoColor=white) ![MIT License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)
-
+![GitHub Actions](https://img.shields.io/badge/github%20actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white) ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white) ![MVC Architecture](https://img.shields.io/badge/MVC%20Architecture-5C6BC0?style=for-the-badge&logo=angular&logoColor=white) ![MIT License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)
 
 This project highlights:
 
 1. `FastAPI` + `Uvicorn`: Lightning-fast API development for guests and rooms ⚡
-2. Modular Architecture: Structured for scalability 🔥
+2. MVC Architecture (no V though :/ ): Structured for scalability 🔥
    - separate application and tests directory
    - clean module/package initiation at each submodule
    - modular directory structure for required data, schemas, services and routers
@@ -60,9 +59,8 @@ This project highlights:
 - [x] Code Coverage: `pytest-cov` for generating coverage metrics 📊
 - [x] Static Code Analysis using `codeql` 🤖
 - [x] Code Auto-formatting & Linting with Pre-commit (check-yaml, end-of-file-fixer, trailing-whitespace, black, isort, mypy) 🎨
-- [ ] add pytest coverage in unit test action
-- [ ] add action for format checks
-- [ ] dockerize the repo & add resources
+- [x] add action for format checks
+- [] dockerize the repo & add resources
 
 > [!TIP]
 > Check the [Resources](#resources) section for a quick start on `FastAPI`, `Pydantic`, `Uvicorn`, `Loguru`, `Pytest`, `Pytest-cov`, `Makefile`, `CodeQL`, `pre-commit` and `GitHub Actions`.
@@ -208,11 +206,11 @@ To automate the pytest testing using GitHub Actions, follow these steps:
 
 1. Create a `.github/workflows` directory in the root of your repository if it doesn't already exist.
 
-2. Inside the `.github/workflows` directory, create/add `.yml`/`.yaml` file that contains the workflow jobs. For example see: [unit_tests.yml](.github/workflows/unit_tests.yml)
+2. Inside the `.github/workflows` directory, create/add `.yml`/`.yaml` file that contains the workflow `CI` jobs. For example see: [unit_tests.yml](.github/workflows/unit_tests.yml)
 
 3. Add event triggers like on push/pull request and branch/file filters according to need.
 
-This workflow will trigger on every push and pull request to the `main` branch. It will set up Python 3.10, install the dependencies, and run the tests with coverage.
+This workflow will trigger on every push and pull request to the `main` branch. It will set up Python 3.10, install the dependencies, and run the jobs 1) `unit-tests` 2) `formatting-and-linting-checks`
 
 > [!TIP]
 > Check the [Resources](#resources) `CI/GitHub Actions` section for more.
@@ -233,7 +231,7 @@ To auto format the codebase, follow these steps:
 
 Don't forget to add the latest version/revision available for all hooks.
 
-3. run the following command to set up the hooks, configured hooks will be run at each commit.
+3. run the following commands to set up the hooks, configured hooks will be run at each commit.
 
 ```
 pre-commit install
@@ -305,12 +303,12 @@ From the `security` tab of the repo, enable `code scanning alert` with `default`
 
 this now enables:
 
-- ✅ Automated Security Scanning – Detects vulnerabilities and coding issues.
-- ✅ Alerts for Security Issues – Displays issue type, severity, file location, and suggested fixes.
-- ✅ PR & Push Scanning – Blocks insecure code from merging until fixed.
-- ✅ Custom Query Support – Use CodeQL to define custom security checks.
-- ✅ Integration with GitHub Actions – Automate scanning on every commit and PR.
-- ✅ Security Insights & Compliance – Helps with secure coding practices and audits.
+- Automated Security Scanning – Detects vulnerabilities and coding issues. ✅
+- Alerts for Security Issues – Displays issue type, severity, file location, and suggested fixes. ✅
+- PR & Push Scanning – Blocks insecure code from merging until fixed. ✅
+- Custom Query Support – Use CodeQL to define custom security checks. ✅
+- Integration with GitHub Actions – Automate scanning on every commit and PR. ✅
+- Security Insights & Compliance – Helps with secure coding practices and audits. ✅
 
 ## Resources
 
