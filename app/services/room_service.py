@@ -88,8 +88,17 @@ class RoomService:
         logger.debug(f"Room with id {room_id} updated: {response_room.model_dump()}")
         return response_room
 
-    # async def upload_image(self, file: UploadFile = File(...)) -> UploadImageResponse:
     async def upload_image(self, file: UploadFile = File(...)):
+        """
+        Uploads an image file.
+        Args:
+            file (UploadFile): The image file to be uploaded. Must be of type 'image/*'.
+        Raises:
+            InvalidImageFileException: If the uploaded file is not an image.
+            HTTPException: If an error occurs during the upload process.
+        Returns:
+            UploadImageResponse: A response object containing the file name and file size.
+        """
         if file.content_type is None or not file.content_type.startswith("image/"):
             raise InvalidImageFileException
 
@@ -97,11 +106,9 @@ class RoomService:
             response_dict = {
                 "file_name": file.filename,
                 "file_size": file.size,
-                "headers": file.headers,
             }
 
             return UploadImageResponse(**response_dict)
-            # return response_dict
 
         except Exception as error:
             logger.exception(error)

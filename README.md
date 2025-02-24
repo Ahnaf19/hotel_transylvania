@@ -3,7 +3,16 @@
 ## Table of Contents
 
 1. [Introduction](#introduction)
-2. [Project Setup](#project-setup)
+2. [Docker Build & Run](#docker-build--run)
+
+- [Prerequisites](#prerequisites)
+- [Build Docker Image](#build-docker-image)
+- [Run Docker Container](#run-docker-container)
+- [Stopping the Container](#stopping-the-container)
+- [Removing the Container](#removing-the-container)
+- [Removing the Docker Image](#removing-the-docker-image)
+
+3. [Project Setup](#project-setup)
 
 - [Create and Activate Virtual Environment](#create-and-activate-virtual-environment)
 - [Install Dependencies](#install-dependencies)
@@ -12,15 +21,15 @@
 - [Running .py & Pytest](#running-py--pytest)
 - [Generate Pytest Code Coverage](#generate-pytest-code-coverage)
 
-3. [Continuous Integration (CI)](#continuous-integration-ci)
+4. [Continuous Integration (CI)](#continuous-integration-ci)
 
 - [Implement GitHub Action Workflow for testing](#ci-implement-github-action-workflow-for-testing)
 - [Code Formatting & Linting with Pre-commit](#ci-code-formatting--linting-with-pre-commit-black-isort-mypy)
 - [Code Scanning with CodeQL](#ci-code-scanning-with-codeql)
 
-4. [Resources](#resources)
-5. [Collaborate & Contribute](#collaborate--contribute)
-6. [License](#license)
+5. [Resources](#resources)
+6. [Collaborate & Contribute](#collaborate--contribute)
+7. [License](#license)
 
 ## Introduction
 
@@ -76,8 +85,7 @@ Ensure you have Docker installed on your machine. You can download it from [here
 
 #### Build Docker Image
 
-> [!IMPORTANT]
-> `Docker Daemon` or `Docker Desktop` must be running while building Docker Image.
+> [!IMPORTANT] > `Docker Daemon` or `Docker Desktop` must be running while building Docker Image.
 
 Navigate to the root directory of the repo where the `Dockerfile` is located and run the following command to build the Docker image:
 
@@ -95,8 +103,7 @@ docker run -dp 8000:8000 hotel_transylvania:latest
 
 This will start the application in a Docker container. The application can be accessed at `http://localhost:8000` e.g. `127.0.0.1:8000`
 
-> [!NOTE]
-> `-dp` (`-d` & `-p`) tag runs the container in detached mode (in the background, terminal is available to use right away) and container port `8000` is mapped to local port `8000`.
+> [!NOTE] > `-dp` (`-d` & `-p`) tag runs the container in detached mode (in the background, terminal is available to use right away) and container port `8000` is mapped to local port `8000`.
 
 #### Stopping the Container
 
