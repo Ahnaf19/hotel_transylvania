@@ -1,6 +1,7 @@
-from typing import Optional
+from typing import Annotated, Optional, Union
 
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
+from starlette.datastructures import Headers
 
 
 class RoomBase(BaseModel):
@@ -87,3 +88,21 @@ class UpdateRoom(BaseModel):
     room_price: Optional[float] = None
     room_is_available: Optional[bool] = None
     current_guest_id: Optional[str] = None
+
+
+class UploadImageResponse(BaseModel):
+    """
+    Response model for uploading an image.
+
+    Attributes:
+        file_name (str): The name of the uploaded file.
+        file_size (int): The size of the uploaded file in bytes.
+        headers (Union[Headers, None]): Optional headers associated with the upload response.
+    """
+
+    file_name: str
+    file_size: int
+    # headers: Union[Headers, None]
+    headers: Annotated[Headers, None]  # , ConfigDict(max_items=1)]
+
+    # model_config = ConfigDict(arbitrary_types_allowed=True)
