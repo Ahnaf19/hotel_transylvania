@@ -45,3 +45,8 @@ class RoomAlreadyExistsException(HTTPException):
         }
         # Call the parent constructor with a 409 status code and the detail message
         super().__init__(status_code=409, detail=detail)
+
+
+class InvalidImageFileException(HTTPException):
+    def __init__(self, detail: str = "Invalid image file."):
+        super().__init__(status_code=400, detail=detail)

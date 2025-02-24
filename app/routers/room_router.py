@@ -1,7 +1,8 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, File, UploadFile
+from starlette.datastructures import Headers
 
 from app.data.room_data import dummy_room_data
-from app.schemas.room_schema import *
+from app.schemas.room_schema import RoomBase, RoomData, UpdateRoom, UploadImageResponse
 from app.services.room_service import RoomService
 
 # Initialize the router
@@ -85,3 +86,17 @@ async def modify_room(room_id: int, updated_room: UpdateRoom) -> RoomBase:
         RoomBase: The modified room data.
     """
     return room_service.update_room_by_id(room_id, updated_room)
+
+
+@router.post("/upload-img/", response_model=UploadImageResponse)
+async def upload_image(file: UploadFile = File(...)) -> UploadImageResponse:
+    """
+    Endpoint to upload an image for a room.
+
+    Args:
+        file (UploadFile): The image file to be uploaded.
+
+    Returns:
+        UploadImageResponse: The response containing the details of the uploaded image.
+    """
+    return await room_service.upload_image(file)
