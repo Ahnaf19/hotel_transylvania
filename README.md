@@ -41,6 +41,21 @@ This repository contains the codebase for a web application built using FastAPI 
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi) ![Pydantic](https://img.shields.io/badge/pydantic-4A91A2?style=for-the-badge&logo=python&logoColor=white) ![Pytest](https://img.shields.io/badge/pytest-0A9EDC?style=for-the-badge&logo=pytest&logoColor=white) ![Uvicorn](https://img.shields.io/badge/uvicorn-111111?style=for-the-badge&logo=uvicorn&logoColor=white) ![Loguru](https://img.shields.io/badge/loguru-FF9C00?style=for-the-badge&logo=python&logoColor=white) ![Makefile](https://img.shields.io/badge/makefile-075EAF?style=for-the-badge&logo=gnu&logoColor=white) ![Black](https://img.shields.io/badge/black-000000?style=for-the-badge&logo=python&logoColor=white) ![Pre-commit](https://img.shields.io/badge/pre--commit-FAAF3A?style=for-the-badge&logo=pre-commit&logoColor=white) ![CodeQL](https://img.shields.io/badge/codeql-006F99?style=for-the-badge&logo=github-actions&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/github%20actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white) ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white) ![MVC Architecture](https://img.shields.io/badge/MVC%20Architecture-5C6BC0?style=for-the-badge&logo=angular&logoColor=white) ![MIT License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)
 
+> [!TIP]
+> Some essential topics are not integrated in this project. Check out the newly added resources in [Resources](#resources) for:
+
+- Newly created **FastAPI boilerplate**.
+- Use **FastAPI lifespan** when initiating app or alternatively use **startup, shutdown event**s.
+- Use of **background tasks** in FastAPI.
+- **Integrating databases**
+  - SQL Databases using SQLModel and SQLAlchemy
+    - PostgreSQL
+    - MySQL
+  - Non SQL:
+    - Redis (for caching) & redis-om (for persistent db)
+    - MongoDB
+    - AWS DynamoDB
+
 This project highlights:
 
 1. `FastAPI` + `Uvicorn`: Lightning-fast API development for guests and rooms ⚡
@@ -391,6 +406,26 @@ this now enables:
 ## Resources
 
 - FastAPI official <a href="https://fastapi.tiangolo.com/learn/">documentation</a>
+
+  - Use of **FastAPI lifespan** in app initiation --> reference repository <a href="https://github.com/Ahnaf19/fast-cart">fast-cart</a>
+    - see <a href="https://fastapi.tiangolo.com/advanced/events/">events-doc</a>
+  - Use of **Background Tasks**
+    - see <a href="https://fastapi.tiangolo.com/tutorial/background-tasks/">background-tasks-doc</a>
+  - **Integrating Databases**
+    - SQL db
+      - [`PostgreSQL`, `MySQL`]
+        - see <a href="https://fastapi.tiangolo.com/tutorial/sql-databases/">sql-databases</a>
+        - see <a href="https://sqlmodel.tiangolo.com/">sqlmodel</a>
+        - reference repository <a href="https://github.com/Ahnaf19/fast-cart">fast-cart</a>
+    - Non SQL db
+      - `Redis` (for caching) and `Redis-OM` (for persistent db)
+        - reference repository <a href="https://github.com/Ahnaf19/fast-cart">fast-cart</a>
+      - `AWS DynamoDB`
+        - reference repository <a href="https://github.com/Ahnaf19/dynamodb_pycrud">dynamodb_pycrud</a> (not integrated with FastAPI but shows how to interact with DynamoDB with `Boto3` SDK)
+      - `MongoDB`
+        - resource yet to be added
+
+- FastAPI boilerplate <a href="https://github.com/Ahnaf19/fastapi-boilerplate">repo</a> for quickstart
 
 - learn basic usage of `fastAPI` & `Github Actions` from the following repo:
 
