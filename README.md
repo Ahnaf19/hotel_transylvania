@@ -52,7 +52,7 @@ This repository contains the codebase for a web application built using FastAPI 
     - PostgreSQL
     - MySQL
   - Non SQL:
-    - Redis (for caching) & redis-om (for persistant db)
+    - Redis (for caching) & redis-om (for persistent db)
     - MongoDB
     - AWS DynamoDB
 
