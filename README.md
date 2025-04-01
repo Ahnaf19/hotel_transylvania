@@ -52,7 +52,7 @@ This repository contains the codebase for a web application built using FastAPI 
     - PostgreSQL
     - MySQL
   - Non SQL:
-    - Redis (for caching) & redis-om (for persistant db)
+    - Redis (for caching) & redis-om (for persistent db)
     - MongoDB
     - AWS DynamoDB
 
@@ -100,7 +100,8 @@ Ensure you have Docker installed on your machine. You can download it from [here
 
 #### Build Docker Image
 
-> [!IMPORTANT] > `Docker Daemon` or `Docker Desktop` must be running while building Docker Image.
+> [!IMPORTANT]
+> `Docker Daemon` or `Docker Desktop` must be running while building Docker Image.
 
 Navigate to the root directory of the repo where the `Dockerfile` is located and run the following command to build the Docker image:
 
@@ -118,7 +119,8 @@ docker run -dp 8000:8000 hotel_transylvania:latest
 
 This will start the application in a Docker container. The application can be accessed at `http://localhost:8000` e.g. `127.0.0.1:8000`
 
-> [!NOTE] > `-dp` (`-d` & `-p`) tag runs the container in detached mode (in the background, terminal is available to use right away) and container port `8000` is mapped to local port `8000`.
+> [!NOTE]
+> `-dp` (`-d` & `-p`) tag runs the container in detached mode (in the background, terminal is available to use right away) and container port `8000` is mapped to local port `8000`.
 
 #### Stopping the Container
 
@@ -411,13 +413,14 @@ this now enables:
     - see <a href="https://fastapi.tiangolo.com/tutorial/background-tasks/">background-tasks-doc</a>
   - **Integrating Databases**
     - SQL db
-      - [`PostgreSQL`, `MysQL`]
+      - [`PostgreSQL`, `MySQL`]
         - see <a href="https://fastapi.tiangolo.com/tutorial/sql-databases/">sql-databases</a>
+        - see <a href="https://sqlmodel.tiangolo.com/">sqlmodel</a>
         - reference repository <a href="https://github.com/Ahnaf19/fast-cart">fast-cart</a>
     - Non SQL db
-      - `Redis` (for caching) and `Redis-OM` (for persistant db)
+      - `Redis` (for caching) and `Redis-OM` (for persistent db)
         - reference repository <a href="https://github.com/Ahnaf19/fast-cart">fast-cart</a>
-      - `AWS DyanmoDB`
+      - `AWS DynamoDB`
         - reference repository <a href="https://github.com/Ahnaf19/dynamodb_pycrud">dynamodb_pycrud</a> (not integrated with FastAPI but shows how to interact with DynamoDB with `Boto3` SDK)
       - `MongoDB`
         - resource yet to be added
