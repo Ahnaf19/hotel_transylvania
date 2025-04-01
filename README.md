@@ -417,7 +417,7 @@ this now enables:
     - Non SQL db
       - `Redis` (for caching) and `Redis-OM` (for persistant db)
         - reference repository <a href="https://github.com/Ahnaf19/fast-cart">fast-cart</a>
-      - `AWS DyanmoDB`
+      - `AWS DynamoDB`
         - reference repository <a href="https://github.com/Ahnaf19/dynamodb_pycrud">dynamodb_pycrud</a> (not integrated with FastAPI but shows how to interact with DynamoDB with `Boto3` SDK)
       - `MongoDB`
         - resource yet to be added
