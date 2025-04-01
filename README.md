@@ -411,7 +411,7 @@ this now enables:
     - see <a href="https://fastapi.tiangolo.com/tutorial/background-tasks/">background-tasks-doc</a>
   - **Integrating Databases**
     - SQL db
-      - [`PostgreSQL`, `MysQL`]
+      - [`PostgreSQL`, `MySQL`]
         - see <a href="https://fastapi.tiangolo.com/tutorial/sql-databases/">sql-databases</a>
         - reference repository <a href="https://github.com/Ahnaf19/fast-cart">fast-cart</a>
     - Non SQL db
